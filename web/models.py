@@ -3,17 +3,17 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
-    name = models.TextField(max_length=255, verbose_name="Категория товаров")
+    name = models.CharField(max_length=255, verbose_name="Категория товаров")
 
 class Exporter(models.Model):
-    name = models.TextField(max_length=255, verbose_name="Название продавца")
-    address = models.TextField(max_length=255, verbose_name="Адрес продавца")
-    tel = models.TextField(max_length=255, verbose_name="Телефон продавца")
+    name = models.CharField(max_length=255, verbose_name="Название продавца")
+    address = models.CharField(max_length=255, verbose_name="Адрес продавца")
+    tel = models.CharField(max_length=255, verbose_name="Телефон продавца")
 
 class Lot(models.Model):
-    name = models.TextField(max_length=255, verbose_name="Название товара")
-    material = models.TextField(max_length=255, verbose_name="Материал товара")
-    purpose = models.TextField(max_length=255, verbose_name="Назначение товара")
+    name = models.CharField(max_length=255, verbose_name="Название товара")
+    material = models.CharField(max_length=255, verbose_name="Материал товара")
+    purpose = models.CharField(max_length=255, verbose_name="Назначение товара")
     shop = models.ForeignKey("Exporter", verbose_name="Поставщик товара", on_delete=models.CASCADE)
     category = models.ForeignKey("Category", verbose_name="Категория товара", on_delete=models.CASCADE)
 
@@ -24,7 +24,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=500, verbose_name="Имя")
     patronymic = models.CharField(max_length=500, verbose_name="Отчество")
 
-    person_type = models.TextField(max_length=255, verbose_name="Лицо")
+    person_type = models.CharField(max_length=255, verbose_name="Лицо")
 
     cart = models.ManyToManyField("Lot", verbose_name="Корзина", related_name="cart")
     favorite = models.ManyToManyField("Lot", verbose_name="Избранное", related_name="favorite")
