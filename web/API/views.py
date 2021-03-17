@@ -4,6 +4,8 @@ from .serializers import (
     ExporterSerializer,
     LotSerializer,
     ProfileSerializer,
+    CategoryDetailSerializer,
+    ExporterDetailSerializer
 )
 
 from ..models import Category, Exporter, Lot, Profile
@@ -12,9 +14,29 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+    action_to_serializer = {
+        'retrieve': CategoryDetailSerializer
+    }
+
+    def get_serializer_class(self):
+        return self.action_to_serializer.get(
+            self.action,
+            self.serializer_class
+        )
+
 class ExporterViewSet(viewsets.ModelViewSet):
     queryset = Exporter.objects.all()
     serializer_class = ExporterSerializer
+
+    action_to_serializer = {
+        'retrieve': ExporterDetailSerializer
+    }
+
+    def get_serializer_class(self):
+        return self.action_to_serializer.get(
+            self.action,
+            self.serializer_class
+        )
 
 class LotViewSet(viewsets.ModelViewSet):
     queryset = Lot.objects.all()

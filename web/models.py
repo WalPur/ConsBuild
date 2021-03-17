@@ -5,10 +5,17 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=255, verbose_name="Категория товаров")
 
+    def __str__(self):
+        return "Категория " + self.name
+    
+
 class Exporter(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название продавца")
     address = models.CharField(max_length=255, verbose_name="Адрес продавца")
     tel = models.CharField(max_length=255, verbose_name="Телефон продавца")
+
+    def __str__(self):
+        return "Продавец" + self.name
 
 class Lot(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название товара")
@@ -16,6 +23,9 @@ class Lot(models.Model):
     purpose = models.CharField(max_length=255, verbose_name="Назначение товара")
     shop = models.ForeignKey("Exporter", verbose_name="Поставщик товара", on_delete=models.CASCADE)
     category = models.ForeignKey("Category", verbose_name="Категория товара", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Товар " + self.name
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
@@ -28,3 +38,6 @@ class Profile(models.Model):
 
     cart = models.ManyToManyField("Lot", verbose_name="Корзина", related_name="cart")
     favorite = models.ManyToManyField("Lot", verbose_name="Избранное", related_name="favorite")
+
+    def __str__(self):
+        return "Пользователь" + self.name
