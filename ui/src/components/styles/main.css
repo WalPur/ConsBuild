@@ -15,4 +15,5 @@ body {
     margin: auto;
     background-color: rgba(44, 44, 44, 0.8);
     height: 100%;
+    padding: 0 20px;
 }

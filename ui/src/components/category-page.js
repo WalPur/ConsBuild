@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './styles/categoryList.css';
+import { NavLink } from 'react-router-dom';
+
 
 function Category() {
   const [category, setCategory] = useState([]);
@@ -14,9 +16,10 @@ function Category() {
     })
   }, [])
   return (
-    <div className="App">
+    <div className="Categories">
+      <span className="CategoriesTitle">Категории:</span>
       {category.map(c => (
-        <Link className="Category" to={{pathname: `/categories/${c.id}`, fromDashboard: false}}>{c.name}</Link>
+        <NavLink className="Category" to={{pathname: `${c.id}`, fromDashboard: false}}>{c.name}</NavLink>
       ))}
     </div>
   );

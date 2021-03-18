@@ -51,7 +51,7 @@ class Home extends React.Component {
                 </div>
                 <input type="submit" className="submitButton" value="Отправить" />
             {fireRedirect && (
-                <Redirect to={from || "build/" + this.state.inputS + "/" + this.state.inputF} />
+                <Redirect to={from || "build/" + this.state.inputS + "/" + this.state.inputF + "/"} />
             )}
             </form>
         );

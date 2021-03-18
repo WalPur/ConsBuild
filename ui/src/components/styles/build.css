@@ -1,0 +1,7 @@
+.Build {
+    display: flex;
+    justify-content: space-between;
+}
+.main-content h2{
+    margin: 0;
+}
