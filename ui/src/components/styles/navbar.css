@@ -1,0 +1,21 @@
+.NavBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.HiddenBar{
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+}
+.NavBarElement {
+    text-decoration: none;
+    margin: 0 15px;
+    height: fit-content;
+}
+.NavIcon {
+    width: 100px;
+}
+.LogoImg {
+    width: 150px;
+}
