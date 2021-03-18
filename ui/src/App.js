@@ -1,7 +1,6 @@
 import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 
 import NavBar from "./components/navbar";
-import Category from './components/category-page';
 import Home from "./components/Home";
 import Build from './components/build';
 

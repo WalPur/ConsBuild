@@ -14,24 +14,13 @@ function CategoryPage(id) {
             setLot(response.data.lots)
         })
     }, [id])
-
-    const [shop, setShop] = useState([]);
-    useEffect(() => {
-        axios({
-            method: "GET",
-            url: `http://127.0.0.1:8000/api/exporter/`
-        }).then(response => {
-            setLot(response.data.lots)
-        })
-    }, [id])
-    console.log(lot);
     return(
         <div className="lots">
             {lot.map(l => (
                 <div className='lot'>
                     <div className="desc">
                         <Link className='lotTitle Title'>{l.name}</Link>
-                        <Link className="shopTitle Title">Продавец: {l.shop.name}</Link>
+                        <Link className="shopTitle Title">Продавец: {l.shop}</Link>
                         <div className="lotDesc">
                             Материал: {l.material}. Назначение: {l.purpose}.
                         </div>
@@ -43,7 +32,5 @@ function CategoryPage(id) {
                 </div>
             ))}
         </div>
-    );
-}
-
-export default CategoryPage;
+    )};
+    export default CategoryPage;
