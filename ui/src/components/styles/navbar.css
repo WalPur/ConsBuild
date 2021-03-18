@@ -15,6 +15,10 @@
 }
 .NavIcon {
     width: 100px;
+    transition: 0.7s;
+}
+.NavIcon:hover {
+    transform: scale(1.2);
 }
 .LogoImg {
     width: 150px;

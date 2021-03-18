@@ -1,0 +1,26 @@
+.Calc {
+    margin: auto;
+    width: 300px;
+}
+label {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.HomeInput {
+    border-radius: 50px;
+    height: 25px;
+    border: none;
+    width: 150px;
+    padding: 0;
+}
+.submitButton {
+    width: 150px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50px;
+    height: 25px;
+    border: none;
+    font-family: 'Jura', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}

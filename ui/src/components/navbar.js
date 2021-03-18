@@ -10,19 +10,19 @@ function NavBar() {
   return (
     <div className="NavBar">
       <Link className="NavBarElement" to={{ pathname: `/`, fromDashBoard: false }}>
-        <img className="LogoImg" src={logo} alt='Логотип' />
+        <img className="LogoImg" src={logo} alt='Логотип' title="На главную" />
       </Link>
       <Link className="NavBarElement" to={{ pathname: `/profile`, fromDashBoard: false }}>
-        <img className="NavIcon" src={profileIcon} alt='Профиль' />
+        <img className="NavIcon" src={profileIcon} alt='Профиль' title="Личный кабинет" />
       </Link>
       <Link className="NavBarElement" to={{ pathname: `/fav`, fromDashBoard: false }}>
-        <img className="NavIcon" src={favIcon} alt='Избранные' />
+        <img className="NavIcon" src={favIcon} alt='Избранные' title="Избранные" />
       </Link>
       <Link className="NavBarElement" to={{ pathname: `/login`, fromDashBoard: false }}>
-        <img className="NavIcon" src={loginIcon} alt='Логин' />
+        <img className="NavIcon" src={loginIcon} alt='Логин' title="Вход" />
       </Link>
       <Link className="NavBarElement" to={{ pathname: `/about`, fromDashBoard: false }}>
-        <img className="NavIcon" src={infoIcon} alt='О нас' />
+        <img className="NavIcon" src={infoIcon} alt='О нас' title="О нас" />
       </Link>
     </div>
   );
