@@ -1,30 +1,6 @@
 import Category from "./category-page";
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
 import './styles/build.css';
-// import CategoryPage from './Category'
-
-function CategoryPage(id) {
-    const [category, setCategory] = useState([]);
-    const [lot, setLot] = useState([]);
-
-    useEffect(() => {
-        axios({
-            method: "GET",
-            url: `http://127.0.0.1:8000/api/category/${id}/`
-        }).then(response => {
-            setCategory(response.data)
-            setLot(response.data.lots)
-        })
-    }, [id])
-    return(
-        <div className="App">
-            {lot.map(l => (
-                <p>{l.id}.{l.name}</p>
-            ))}
-        </div>
-    );
-}
+import CategoryPage from './Category'
 
     function Build({ match }) {
     const Floors = match.params.floors;

@@ -1,6 +1,7 @@
 .Categories {
     display: flex;
     flex-direction: column;
+    width: 200px;
 }
 .CategoriesTitle {
     font-size: 32px;
@@ -12,5 +13,8 @@
     text-decoration: none;
 }
 .Category:hover {
+    color: #fff;
+}
+.CategoryA{
     color: #fff;
 }

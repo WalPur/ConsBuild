@@ -3,12 +3,11 @@ from .serializers import (
     CategorySerializer,
     ExporterSerializer,
     LotSerializer,
-    ProfileSerializer,
     CategoryDetailSerializer,
     ExporterDetailSerializer
 )
 
-from ..models import Category, Exporter, Lot, Profile
+from ..models import Category, Exporter, Lot
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -41,7 +40,3 @@ class ExporterViewSet(viewsets.ModelViewSet):
 class LotViewSet(viewsets.ModelViewSet):
     queryset = Lot.objects.all()
     serializer_class = LotSerializer
-
-class ProfileViewSet(viewsets.ModelViewSet):
-    queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer

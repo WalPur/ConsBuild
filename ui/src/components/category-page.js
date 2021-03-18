@@ -18,9 +18,11 @@ function Category() {
   return (
     <div className="Categories">
       <span className="CategoriesTitle">Категории:</span>
-      {category.map(c => (
-        <NavLink className="Category" to={{pathname: `${c.id}`, fromDashboard: false}}>{c.name}</NavLink>
-      ))}
+      <ol>
+        {category.map(c => (
+          <li><NavLink className="Category" activeClassName="CategoryA" to={{pathname: `${c.id}`, fromDashboard: false}}>{c.name}</NavLink></li>
+        ))}
+      </ol>
     </div>
   );
 }

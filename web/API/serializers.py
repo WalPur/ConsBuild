@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ..models import Category, Exporter, Lot, Profile
+from ..models import Category, Exporter, Lot
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,9 +37,4 @@ class ExporterDetailSerializer(serializers.ModelSerializer):
 class LotSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lot
-        fields = '__all__'
-
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
         fields = '__all__'

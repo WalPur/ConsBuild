@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -27,17 +27,17 @@ class Lot(models.Model):
     def __str__(self):
         return "Товар " + self.name
 
-class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+# class Profile(models.Model):
+#     user = models.ForeignKey(User, on_delete = models.CASCADE)
 
-    surname = models.CharField(max_length=500, verbose_name="Фамилия")
-    name = models.CharField(max_length=500, verbose_name="Имя")
-    patronymic = models.CharField(max_length=500, verbose_name="Отчество")
+#     surname = models.CharField(max_length=500, verbose_name="Фамилия")
+#     name = models.CharField(max_length=500, verbose_name="Имя")
+#     patronymic = models.CharField(max_length=500, verbose_name="Отчество")
 
-    person_type = models.CharField(max_length=255, verbose_name="Лицо")
+#     person_type = models.CharField(max_length=255, verbose_name="Лицо")
 
-    cart = models.ManyToManyField("Lot", verbose_name="Корзина", related_name="cart")
-    favorite = models.ManyToManyField("Lot", verbose_name="Избранное", related_name="favorite")
+#     cart = models.ManyToManyField("Lot", verbose_name="Корзина", related_name="cart")
+#     favorite = models.ManyToManyField("Lot", verbose_name="Избранное", related_name="favorite")
 
-    def __str__(self):
-        return "Пользователь" + self.name
+#     def __str__(self):
+#         return "Пользователь" + self.name

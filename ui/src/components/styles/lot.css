@@ -1,0 +1,43 @@
+.lot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+}
+.desc {
+    display: flex;
+    flex-direction: column;
+}
+.Title {
+    color: #aaa;
+    text-decoration: none;
+}
+.Title:hover {
+    color: #fff;
+}
+.lotTitle {
+    font-size: 24px;
+}
+.shopTitle {
+    font-size: 20px;
+}
+.lotDesc {
+    color: #ccc;
+}
+.variants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.addButton {
+    border-radius: 50px;
+    height: 40px;
+    border: none;
+    width: 150px;
+    padding: 0;
+}
+.favButton {
+    height: 35px;
+    width: 130px;
+}
