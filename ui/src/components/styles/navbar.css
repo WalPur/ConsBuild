@@ -23,3 +23,10 @@
 .LogoImg {
     width: 150px;
 }
+.Logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 26px;
+}

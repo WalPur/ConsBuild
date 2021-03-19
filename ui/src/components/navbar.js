@@ -9,8 +9,9 @@ import cartIcon from './images/Icons/IMG_1526.PNG';
 function NavBar() {
   return (
     <div className="NavBar">
-      <Link className="NavBarElement" to={{ pathname: `/`, fromDashBoard: false }}>
+      <Link className="NavBarElement Logo" to={{ pathname: `/`, fromDashBoard: false }}>
         <img className="LogoImg" src={logo} alt='Логотип' title="На главную" />
+        <span>ConsBuild</span>
       </Link>
       <Link className="NavBarElement" to={{ pathname: `/profile`, fromDashBoard: false }}>
         <img className="NavIcon" src={profileIcon} alt='Профиль' title="Личный кабинет" />
