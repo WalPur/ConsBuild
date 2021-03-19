@@ -8,7 +8,7 @@ function CategoryBar() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://127.0.0.1:8000/api/category/"
+      url: "http://consbuild.pythonanywhere.com/api/category/"
     }).then(response => {
       setCategory(response.data)
     })
