@@ -6,27 +6,15 @@ import Cookies from 'universal-cookie';
 
 function Cart() {
     var lot = [];
-    const cookies = new Cookies();
+    var content = (null)
+    
+    // There should be import from user data about lots
+    // Or else just a label to say "add something" or idk
 
-    if (cookies) {
-        var cookie = cookies.get('Cart')
-        for (let id = 0; id < cookie.length; id++){
-            var num = '';
-            while (cookie[id] != '.') {
-                num += cookie[id];
-                id++;
-            }
-            axios({
-                method: "GET",
-                url: `http://consbuild.pythonanywhere.com/api/lot/${num}/`
-            }).then(response => {
-                lot.push(response.data)
-            })
-        }
-    }
-    return(
-        <div className="lot">
-            {lot.map(l => (
+    // Some sketch
+    if (lot.length != 0) {
+        content = 
+            lot.map(l => (
                 <div className='lot'>
                     <div className="desc">
                         <Link className='lotTitle Title'>{l.name}</Link>
@@ -36,7 +24,14 @@ function Cart() {
                         </div>
                     </div>
                 </div>
-            ))}
+            ))
+    } else {
+        content = <h2>Добавьте товары</h2>
+    }
+
+    return(
+        <div className="lot">
+            {content}
         </div>
     )};
     export default Cart;
