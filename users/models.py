@@ -1,5 +1,8 @@
 # users/models.py
 from __future__ import unicode_literals
+import jwt
+from django.conf import settings
+from datetime import datetime, timedelta
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import (
@@ -44,9 +47,9 @@ class User(AbstractBaseUser, PermissionsMixin):
  
     """
     email = models.EmailField(max_length=40, unique=True)
-    surname = models.CharField(max_length=500, verbose_name="Фамилия", default='USERNAME')
-    name = models.CharField(max_length=500, verbose_name="Имя", default='USERNAME')
-    patronymic = models.CharField(max_length=500, verbose_name="Отчество", default='USERNAME')
+    surname = models.CharField(max_length=500, verbose_name="Фамилия")
+    name = models.CharField(max_length=500, verbose_name="Имя")
+    patronymic = models.CharField(max_length=500, verbose_name="Отчество")
     cart = models.ManyToManyField(Lot, verbose_name="Корзина", related_name="cart")
     favorite = models.ManyToManyField(Lot, verbose_name="Избранное", related_name="favorite")
     is_active = models.BooleanField(default=True)
@@ -61,3 +64,17 @@ class User(AbstractBaseUser, PermissionsMixin):
     def save(self, *args, **kwargs):
         super(User, self).save(*args, **kwargs)
         return self
+    
+    @property
+    def token(self):
+        return self._generate_jwt_token()
+
+    def _generate_jwt_token(self):
+        dt = datetime.now() + timedelta(days=60)
+
+        token = jwt.encode({
+            'id': self.pk,
+            'exp': dt
+        }, settings.SECRET_KEY, algorithm='HS256')
+
+        return token.decode('utf-8')

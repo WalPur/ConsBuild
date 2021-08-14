@@ -144,3 +144,16 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = (
     (BASE_DIR / "ui/build/static"),
 )
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = 'users.User'
+
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'users.exceptions.core_exception_handler',
+    'NON_FIELD_ERRORS_KEY': 'error',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'users.backends.JWTAuthentication',
+    ),
+}
